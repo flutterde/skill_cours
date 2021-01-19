@@ -26,15 +26,21 @@ class _MobileHomeState extends State<MobileHome> {
 
               children: [
                 FlatButton(
-                    onPressed: (){},
+                    onPressed: (){
+                      Navigator.pushNamed(context, '/');
+                    },
                     child: Text('home' , style: TextStyle(color: Colors.white , fontSize: 20),)),
                 SizedBox(height: 20,),
                 FlatButton(
-                    onPressed: (){},
+                    onPressed: (){
+                      Navigator.pushNamed(context, '/about');
+                    },
                     child: Text('about' , style: TextStyle(color: Colors.white , fontSize: 20),)),
                 SizedBox(height: 20,),
                 FlatButton(
-                    onPressed: (){},
+                    onPressed: (){
+                      Navigator.pushNamed(context, '/contact');
+                    },
                     child: Text('contact' , style: TextStyle(color: Colors.white , fontSize: 20),)),
               ],
             ),
