@@ -13,6 +13,8 @@ class _DesktopContactState extends State<DesktopContact> {
   Widget build(BuildContext context) {
     final TextEditingController TitleController = TextEditingController();
     final TextEditingController BodyController = TextEditingController();
+    var emailTitle ;
+    var emailbody ;
     final size = MediaQuery.of(context).size;
     return Scaffold(
       backgroundColor: Color(0xFF0E0C38),
@@ -35,36 +37,51 @@ class _DesktopContactState extends State<DesktopContact> {
                         child: Container(child: Image.asset('assets/img/contact.png' , fit: BoxFit.cover,))),
                     Column(
                       children: [
-                        Text('Contact me from here'),
+                        Text('Contact me from here', style: _style(20),),
                         Container(
+                          decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(10),
+                              gradient: LinearGradient(
+                                  begin: Alignment.topLeft,
+                                  end: Alignment.bottomRight,
+                                  colors: [Colors.white , Colors.white]
+                              )
+                          ),
                           width: size.width*0.45,
-                          child:  Form(
-                            child:Column(
-                              children: [
-                                TextFormField(
-                                  controller: TitleController,
-                                ),
-                                TextFormField(
-                                  controller: BodyController,
-                                ),
-                                SizedBox(height: 10,),
-                                Container(
-                                    height: 40,
-                                    width: 120
-                                    ,decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(50),
-                                    gradient: LinearGradient(
-                                        begin: Alignment.topLeft,
-                                        end: Alignment.bottomRight,
-                                        colors: [Colors.purple , Colors.purpleAccent]
-                                    )
-                                )
-                                    ,child: FlatButton(    onPressed: (){
-                                  openUrl('mailto:mysername@gmail.com?subject=$TitleController&body=$BodyController');
-                                },child: Text('Send Email' ,
-                                  style: TextStyle(color: Colors.white),) )),
-                              ],
-                            ) ,
+                          child:  Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Form(
+                              child:Column(
+                                children: [
+                                  TextFormField(
+                                    controller: TitleController,
+                                  ),
+                                  TextFormField(
+                                    controller: BodyController,
+                                  ),
+                                  SizedBox(height: 10,),
+                                  Container(
+                                      height: 40,
+                                      width: 120
+                                      ,decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(50),
+                                      gradient: LinearGradient(
+                                          begin: Alignment.topLeft,
+                                          end: Alignment.bottomRight,
+                                          colors: [Colors.purple , Colors.purpleAccent]
+                                      )
+                                  )
+                                      ,child: FlatButton(    onPressed: (){
+                                        setState(() {
+                                          emailbody = BodyController.text;
+                                          emailTitle = TitleController.text;
+                                        });
+                                    openUrl('mailto:myusername@gmail.com?subject=$emailTitle&body=$emailbody');
+                                  },child: Text('Send Email' ,
+                                    style: TextStyle(color: Colors.white),) )),
+                                ],
+                              ) ,
+                            ),
                           ),
                         )
                       ],
