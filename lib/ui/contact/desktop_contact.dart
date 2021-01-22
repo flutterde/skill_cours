@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:mywebsite/ui/footer.dart';
 import 'package:mywebsite/ui/navbar.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -13,8 +14,9 @@ class _DesktopContactState extends State<DesktopContact> {
   Widget build(BuildContext context) {
     final TextEditingController TitleController = TextEditingController();
     final TextEditingController BodyController = TextEditingController();
-    var emailTitle ;
-    var emailbody ;
+    var titleText;
+    var bodyText;
+
     final size = MediaQuery.of(context).size;
     return Scaffold(
       backgroundColor: Color(0xFF0E0C38),
@@ -25,7 +27,7 @@ class _DesktopContactState extends State<DesktopContact> {
       body: SingleChildScrollView(
         child: Center(
           child: Padding(
-            padding: const EdgeInsets.all(8.0),
+            padding: const EdgeInsets.symmetric(horizontal: 15),
             child: Column(
               children: [
                 Text('Contact Us' , style: _style(40),),
@@ -37,16 +39,24 @@ class _DesktopContactState extends State<DesktopContact> {
                         child: Container(child: Image.asset('assets/img/contact.png' , fit: BoxFit.cover,))),
                     Column(
                       children: [
-                        Text('Contact me from here', style: _style(20),),
+                        Text('Contact me from here', style: _style(30),),
+                        SizedBox(height: 10,),
                         Container(
                           decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(10),
                               gradient: LinearGradient(
                                   begin: Alignment.topLeft,
                                   end: Alignment.bottomRight,
-                                  colors: [Colors.white , Colors.white]
-                              )
+                                  colors: [Color(0xFF0E0C38), Color(0xFF0E0C38),]
+                              ),
+                            boxShadow: [ BoxShadow(
+                              color: Colors.white,
+                              blurRadius: 5.0,
+                              spreadRadius: 1.0,
+                              offset: Offset(5 , 5)
+                            )]
                           ),
+
                           width: size.width*0.45,
                           child:  Padding(
                             padding: const EdgeInsets.all(8.0),
@@ -55,8 +65,16 @@ class _DesktopContactState extends State<DesktopContact> {
                                 children: [
                                   TextFormField(
                                     controller: TitleController,
+                                    decoration: InputDecoration(
+                                      labelText: 'Title',
+                                      labelStyle: TextStyle(color: Colors.white),
+                                    ),
                                   ),
                                   TextFormField(
+                                    decoration: InputDecoration(
+                                      labelText: 'Your message',
+                                      labelStyle: TextStyle(color: Colors.white),
+                                    ),
                                     controller: BodyController,
                                   ),
                                   SizedBox(height: 10,),
@@ -73,10 +91,11 @@ class _DesktopContactState extends State<DesktopContact> {
                                   )
                                       ,child: FlatButton(    onPressed: (){
                                         setState(() {
-                                          emailbody = BodyController.text;
-                                          emailTitle = TitleController.text;
+                                          titleText = TitleController.text;
+                                          bodyText = BodyController.text;
                                         });
-                                    openUrl('mailto:myusername@gmail.com?subject=$emailTitle&body=$emailbody');
+
+                                    openUrl('mailto:myusername@gmail.com?subject=$titleText&body=$bodyText');
                                   },child: Text('Send Email' ,
                                     style: TextStyle(color: Colors.white),) )),
                                 ],
@@ -85,10 +104,18 @@ class _DesktopContactState extends State<DesktopContact> {
                           ),
                         )
                       ],
-                    )
+                    ),
+
                   ],
 
 
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Footer()
+                  ],
                 )
               ],
             ),

@@ -43,8 +43,9 @@ class _FooterState extends State<Footer> {
 
             ],),
             Container(
-                width: MediaQuery.of(context).size.width*0.3,
-                child: Divider( color: Colors.white,)),
+                width: MediaQuery.of(context).size.width*0.2,
+                child: Divider( color: Colors.white,)
+            ),
             Row( children: [
               Text('CopyRight© ${formattedDate}' , style: TextStyle(color: Colors.white),),
 

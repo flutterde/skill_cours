@@ -86,7 +86,7 @@ class _DesktopAboutState extends State<DesktopAbout> {
                       Footer(),
                     ],
                   ),
-                )
+                ),
               ],
             ),
           ),
