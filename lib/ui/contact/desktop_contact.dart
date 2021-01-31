@@ -41,65 +41,78 @@ class _DesktopContactState extends State<DesktopContact> {
                       children: [
                         Text('Contact me from here', style: _style(30),),
                         SizedBox(height: 10,),
-                        Container(
-                          decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(10),
-                              gradient: LinearGradient(
-                                  begin: Alignment.topLeft,
-                                  end: Alignment.bottomRight,
-                                  colors: [Color(0xFF0E0C38), Color(0xFF0E0C38),]
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Container(
+                            decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(10),
+                                gradient: LinearGradient(
+                                    begin: Alignment.topLeft,
+                                    end: Alignment.bottomRight,
+                                    colors: [Color(0xFF0E0C38), Color(0xFF0E0C38),]
+                                ),
+                              boxShadow: [ BoxShadow(
+                                color: Colors.white,
+                                blurRadius: 5.0,
+                                spreadRadius: 1.0,
+                                offset: Offset(5 , 5)
+                              )]
+                            ),
+
+                            width: size.width*0.45,
+                            child:  Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: Form(
+                                child:Column(
+                                  children: [
+                                    TextFormField(
+                                      cursorColor: Colors.white,
+
+                                      style: TextStyle(
+                                          color: Colors.white
+                                      ),
+                                      controller: TitleController,
+                                      decoration: InputDecoration(
+                                        labelText: 'Title',
+                                        labelStyle: TextStyle(color: Colors.white),
+                                      ),
+                                    ),
+                                    TextFormField(
+                                      cursorColor: Colors.white,
+
+                                      style: TextStyle(
+                                          color: Colors.white
+                                      ),
+                                      decoration: InputDecoration(
+                                        labelText: 'Your message',
+                                        labelStyle: TextStyle(color: Colors.white),
+                                      ),
+                                      controller: BodyController,
+                                    ),
+                                    SizedBox(height: 10,),
+                                    Container(
+                                        height: 40,
+                                        width: 120
+                                        ,decoration: BoxDecoration(
+                                        borderRadius: BorderRadius.circular(50),
+                                        gradient: LinearGradient(
+                                            begin: Alignment.topLeft,
+                                            end: Alignment.bottomRight,
+                                            colors: [Colors.purple , Colors.purpleAccent]
+                                        )
+                                    )
+                                        ,child: FlatButton(    onPressed: (){
+                                          setState(() {
+                                            titleText = TitleController.text;
+                                            bodyText = BodyController.text;
+                                          });
+
+                                      openUrl('mailto:myusername@gmail.com?subject=$titleText&body=$bodyText');
+                                    },child: Text('Send Email' ,
+                                      style: TextStyle(color: Colors.white),) )),
+                                  ],
+                                ) ,
                               ),
-                            boxShadow: [ BoxShadow(
-                              color: Colors.white,
-                              blurRadius: 5.0,
-                              spreadRadius: 1.0,
-                              offset: Offset(5 , 5)
-                            )]
-                          ),
-
-                          width: size.width*0.45,
-                          child:  Padding(
-                            padding: const EdgeInsets.all(8.0),
-                            child: Form(
-                              child:Column(
-                                children: [
-                                  TextFormField(
-                                    controller: TitleController,
-                                    decoration: InputDecoration(
-                                      labelText: 'Title',
-                                      labelStyle: TextStyle(color: Colors.white),
-                                    ),
-                                  ),
-                                  TextFormField(
-                                    decoration: InputDecoration(
-                                      labelText: 'Your message',
-                                      labelStyle: TextStyle(color: Colors.white),
-                                    ),
-                                    controller: BodyController,
-                                  ),
-                                  SizedBox(height: 10,),
-                                  Container(
-                                      height: 40,
-                                      width: 120
-                                      ,decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.circular(50),
-                                      gradient: LinearGradient(
-                                          begin: Alignment.topLeft,
-                                          end: Alignment.bottomRight,
-                                          colors: [Colors.purple , Colors.purpleAccent]
-                                      )
-                                  )
-                                      ,child: FlatButton(    onPressed: (){
-                                        setState(() {
-                                          titleText = TitleController.text;
-                                          bodyText = BodyController.text;
-                                        });
-
-                                    openUrl('mailto:myusername@gmail.com?subject=$titleText&body=$bodyText');
-                                  },child: Text('Send Email' ,
-                                    style: TextStyle(color: Colors.white),) )),
-                                ],
-                              ) ,
                             ),
                           ),
                         )

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:mywebsite/ui/footer.dart';
 import 'package:mywebsite/ui/navbar.dart';
 
@@ -40,11 +41,11 @@ class _DesktopHomeState extends State<DesktopHome> {
                         child: Column(
                           children: [
                             Text('build your own website using only flutter and dart  ' ,
-                              style: TextStyle(color: Colors.white , fontSize: 30),),
+                              style: _style(30),),
                             SizedBox(height: 20,),
                             Text('Now build your own site with ease, without the need to learn many techniques,'
                                 ' and in only a short time you can build the most amazing website you want ',
-                              style: TextStyle(color: Colors.white),),
+                              style: TextStyle(color: Colors.white , fontSize: 20),),
                             SizedBox(height: 20,),
                             Container(
                                 height: 40,
@@ -81,6 +82,12 @@ class _DesktopHomeState extends State<DesktopHome> {
        )
         ],
       ),
+    );
+  }
+  _style( double size){
+    return GoogleFonts.mcLaren(
+        fontSize: size,
+        color: Colors.white
     );
   }
 }

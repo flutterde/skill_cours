@@ -16,10 +16,10 @@ class MyApp extends StatelessWidget {
       title: 'Flutter for web',
       theme: ThemeData(
 
-        primarySwatch: Colors.red,
+        primarySwatch: Colors.blue,
       ),
       onGenerateRoute: CustomRoute.allRoutes,
-      initialRoute:'/contact',
+      initialRoute:'/',
     );
   }
 }

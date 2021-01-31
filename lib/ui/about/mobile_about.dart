@@ -56,7 +56,7 @@ class _MobileAboutState extends State<MobileAbout> {
         ),
         centerTitle: true,
         leading: IconButton(
-          icon: Icon(Icons.home_outlined , color: Colors.white,
+          icon: Icon(Icons.menu , color: Colors.white,
 
           ),
           onPressed: ()=> _scaffoldkey.currentState.openDrawer(),
@@ -71,27 +71,35 @@ class _MobileAboutState extends State<MobileAbout> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text('ABOUT US' , style: _style(30),),
+            Text('ABOUT ' , style: _style(30),),
              SizedBox(height: 10,),
-            Container(child: Image.asset('assets/img/about.png' , fit: BoxFit.cover,)),
-            Container(child: Text('My title' , style: _style(30),)),
+            Container(child: Image.asset('assets/img/development.png' , fit: BoxFit.cover,)),
+            Container(child: Text('Web support for Flutter' , style: _style(30),)),
             const SizedBox(height: 20,),
             Container(
-              child: Text('Now build your own site with ease, without the need to learn many techniques,'
-                  ' and in only a short time you can build the most amazing website you want' , style: _style(20),),
+              child: Text(
+                "In addition to mobile apps, Flutter supports the generation of web content rendered using standards-based"
+                    "web technologies:  HTML,CSS and JavaScript . With web support , you can compile existing flutter code written in dart into "
+                    "a client experience that cn be embedded in the browser and deployed to any web server . you can use all the eatures of flutter and you don't need a browser plug-in  ",
+                style: _style(20),
+              ),
             ),
+
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20),
               child: Divider(color: Colors.white,),
             ),
+            Container(child: Image.asset('assets/img/about.png' , fit: BoxFit.cover,)),
 
-            Container(child: Text('My title' , style: _style(30),)),
+            Container(child: Text('What i need for Learn flutter web ?' , style: _style(30),)),
             const SizedBox(height: 20,),
             Container(
-              child: Text('Now build your own site with ease, without the need to learn many techniques,'
-                  ' and in only a short time you can build the most amazing website you want' , style: _style(20),),
+              child:  Text(
+                "If you have previously used Flutter to program mobile applications, it will be very easy for you, but if you are not, you will need some information about Dart and Flutter, as well as for a computer with fairly good specifications, at least 4 GB RAM.",
+                style: _style(20),
+              ),
             ),
-            Container(child: Image.asset('assets/img/about.png' , fit: BoxFit.cover,)),
+
                Padding(
                  padding: const EdgeInsets.symmetric(vertical: 20),
                  child: Row(
