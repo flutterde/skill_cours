@@ -152,7 +152,7 @@ class _MobileContactState extends State<MobileContact> {
                                 bodyText = BodyController.text;
                               });
 
-                              openUrl('mailto:myusername@gmail.com?subject=$titleText&body=$bodyText');
+                              openUrl('mailto:sallylool.abc@gmail.com?subject=$titleText&body=$bodyText');
                             },child: Text('Send Email' ,
                               style: TextStyle(color: Colors.white),) )),
 

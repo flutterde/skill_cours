@@ -107,7 +107,7 @@ class _DesktopContactState extends State<DesktopContact> {
                                             bodyText = BodyController.text;
                                           });
 
-                                      openUrl('mailto:myusername@gmail.com?subject=$titleText&body=$bodyText');
+                                      openUrl('mailto:sallylool.abc@gmail.com?subject=$titleText&body=$bodyText');
                                     },child: Text('Send Email' ,
                                       style: TextStyle(color: Colors.white),) )),
                                   ],
